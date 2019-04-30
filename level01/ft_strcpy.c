@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: aponomar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 18:33:55 by jaleman           #+#    #+#             */
-/*   Updated: 2016/11/14 18:33:56 by jaleman          ###   ########.fr       */
+/*   Created: 2019/04/05 15:59:54 by aponomar          #+#    #+#             */
+/*   Updated: 2019/04/05 16:40:28 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+char    *ft_strcpy(char *s1, char *s2)
 {
-	int		i;
+	int i;
 
 	i = 0;
-	while (src[i])
+	while (s2[i])
 	{
-		dst[i] = src[i];
-		i += 1;
+		s1[i] = s2[i];
+		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	s1[i] = s2[i];
+	return (s1);
 }
