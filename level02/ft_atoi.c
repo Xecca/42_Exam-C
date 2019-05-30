@@ -3,31 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: aponomar <aponomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 22:48:46 by jaleman           #+#    #+#             */
-/*   Updated: 2016/09/01 23:07:26 by jaleman          ###   ########.fr       */
+/*   Created: 2019/05/04 20:18:59 by aponomar          #+#    #+#             */
+/*   Updated: 2019/05/29 21:48:19 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
-{
-	int		i;
-	int		nbr;
-	int		sign;
+#include "libft.h"
 
-	i = 0;
+int		ft_atoi(const char *nptr)
+{
+	long long int	sign;
+	long long int	nbr;
+
 	nbr = 0;
 	sign = 1;
-	if (str == '\0')
-		return (0);
-	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
-			|| str[i] == '\r' || str[i] == '\f' || str[i] == ' ')
-		i += 1;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
+	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\r'
+		|| *nptr == '\t' || *nptr == '\v' || *nptr == '\f')
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
 			sign = -1;
-	while (str[i] >= '0' && str[i] <= '9')
-		nbr = (nbr * 10) + (str[i++] - '0');
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		nbr = (nbr * 10) + (long long int)(*nptr - '0');
+		nptr++;
+	}
 	return (nbr * sign);
 }
